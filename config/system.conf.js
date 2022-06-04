@@ -1,4 +1,9 @@
 module.exports = {
+  theme: {
+    namespace: 'Magento',
+    themename: 'headless',
+    locale: 'en_US'
+  },
   antd: {
     variables: {
       white: 'rgb(255, 255, 255)',

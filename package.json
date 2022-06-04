@@ -1,16 +1,24 @@
 {
   "name": "magento-vue-headless",
-  "version": "0.1.0",
+  "author": "Caesar Software Corp",
+  "license": "",
+  "copyright": "@ Caesar Software Corp. All Rights Reserved",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "auto:header": "node ./compile/webpack.node.js",
+    "create:theme": "node ./compile/next.theme.js"
   },
   "dependencies": {
+    "commander": "^9.3.0",
+    "consola": "^2.15.3",
     "core-js": "^3.6.5",
+    "fs-extra": "^10.1.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

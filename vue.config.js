@@ -4,16 +4,17 @@ const dateFormat = require('dateformat')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const WebpackBarPlugin = require('webpackbar')
 
-const BannerPlugin = require('./build/next.webpack')
+const BannerPlugin = require('./compile/next.webpack')
 const SystemConfig = require('./config/system.conf')
 // using data from package.json
 const pkg = require('./package.json')
 
 const IS_PROD = ['production', 'test'].includes(process.env.NODE_ENV)
+const buildPath = 'build'
 
 module.exports = {
   publicPath: '/',
-  outputDir: 'dist',
+  outputDir: buildPath,
   filenameHashing: true,
   lintOnSave: false,
   productionSourceMap: false,
@@ -69,6 +70,17 @@ module.exports = {
       }
     }
   },
+  // pwa: {
+  //   name: 'My App',
+  //   themeColor: '#4DBA87',
+  //   msTileColor: '#000000',
+  //   appleMobileWebAppCapable: 'yes',
+  //   appleMobileWebAppStatusBarStyle: 'black',
+  //   workboxPluginMode: 'InjectManifest',
+  //   workboxOptions: {
+  //     swSrc: 'dev/sw.js'
+  //   }
+  // },
   chainWebpack: (config) => {
     // Remove the old entry and add the new one
     config.entry('app').clear().add('./bootstrap/main').end()
