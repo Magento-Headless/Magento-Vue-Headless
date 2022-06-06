@@ -11,9 +11,13 @@ const pkg = require('./package.json')
 
 const IS_PROD = ['production', 'test'].includes(process.env.NODE_ENV)
 const buildPath = 'build'
+const { theme } = SystemConfig
+const publicPath = IS_PROD
+  ? `/static/frontend/${theme.namespace}/${theme.themename}/${theme.locale}/`
+  : '/'
 
 module.exports = {
-  publicPath: '/',
+  publicPath,
   outputDir: buildPath,
   filenameHashing: true,
   lintOnSave: false,
